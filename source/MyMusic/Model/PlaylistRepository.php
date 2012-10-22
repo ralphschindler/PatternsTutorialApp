@@ -28,11 +28,6 @@ class PlaylistRepository implements PlaylistRepositoryInterface
         }
     }
 
-    /** @return Playlist[] */
-    public function findByName($name)
-    {
-    }
-
     public function store(Playlist $playlist)
     {
         $this->dataMapper->savePlaylist($playlist);

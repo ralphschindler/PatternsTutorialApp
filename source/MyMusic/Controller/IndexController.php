@@ -8,10 +8,10 @@ class IndexController {
         /** @var $view \MyMusic\View\ViewRenderer */
         $view = $services['viewrenderer'];
 
-        /** @var $playlistRepo \MyMusic\Model\PlaylistRepository */
-        $playlistRepo = $services['PlaylistRepository'];
-        
+        /** @var $playlistRepo \MyMusic\Model\PlaylistService */
+        $playlistRepo = $services['PlaylistService'];
         $view->playlists = $playlistRepo->findAll();
+
         $view->includeScript('index/index.phtml');
     }
 }

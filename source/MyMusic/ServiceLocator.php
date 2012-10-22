@@ -75,6 +75,12 @@ class ServiceLocator implements \ArrayAccess
                     new Model\DataMapper($services['db'])
                 );
             },
+
+            'playlistservice' => function ($services) {
+                return new Service\PlaylistService(
+                    $services['playlistrepository']
+                );
+            }
         );
     }
     
