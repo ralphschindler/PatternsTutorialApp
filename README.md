@@ -60,3 +60,9 @@ Your Tasks
 
 3) Build a new Playlist repository that utilizes a web-api to get
    Album and Artist information for a given track
+
+Hints
+-----
+
+If you need hints on how to complete the first task, switch to and
+exploer the "ralph" branch.
