@@ -13,5 +13,5 @@ class ViewRenderer extends \ArrayObject
     public function includeScript($script) {
         include $this->path . '/' . $script;
     }
-    
+
 }

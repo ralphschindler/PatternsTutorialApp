@@ -4,11 +4,22 @@ namespace MyMusic\Model;
 
 class Track
 {
+    protected $id;
     protected $title;
     protected $number;
     protected $length;
     protected $album;
     protected $artist;
+
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    public function getId()
+    {
+        return $this->id;
+    }
 
     public function setTitle($title)
     {
@@ -45,6 +56,9 @@ class Track
         $this->album = $album;
     }
 
+    /**
+     * @return Album
+     */
     public function getAlbum()
     {
         return $this->album;
@@ -55,6 +69,9 @@ class Track
         $this->artist = $artist;
     }
 
+    /**
+     * @return Artist
+     */
     public function getArtist()
     {
         return $this->artist;

@@ -37,6 +37,11 @@ if (!file_exists(__DIR__ . '/spot-resolved-playlist.pson')) {
     $tracks = unserialize(file_get_contents(__DIR__ . '/spot-resolved-playlist.pson'));
 }
 
-var_dump($tracks);
+/** @var $playlistRepo Model\PlaylistRepository */
+$playlistRepo = $services['PlaylistRepository'];
 
+$playlist = new Model\Playlist();
+$playlist->setName('Ralph\'s ZephyrFest Playlist');
+$playlist->setTracks($tracks);
+$playlistRepo->store($playlist);
 

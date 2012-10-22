@@ -2,16 +2,16 @@
 
 namespace MyMusic\Controller;
 
-class IndexController {
-    public function indexAction($services) {
+class PlaylistController {
+    public function listAction($services) {
 
         /** @var $view \MyMusic\View\ViewRenderer */
         $view = $services['viewrenderer'];
 
         /** @var $playlistRepo \MyMusic\Model\PlaylistRepository */
         $playlistRepo = $services['PlaylistRepository'];
-        
-        $view->playlists = $playlistRepo->findAll();
-        $view->includeScript('index/index.phtml');
+
+        $view->playlist = $playlistRepo->findById($_GET['playlist']);
+        $view->includeScript('playlist/list.phtml');
     }
 }

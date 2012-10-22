@@ -21,7 +21,8 @@ class ServiceLocator implements \ArrayAccess
             throw new \InvalidArgumentException('A service by that name does not exist.');
         }
         if ($this->services[$name] instanceof \Closure) {
-            $this->services[$name] = $this->services[$name]($this);
+            $service = $this->services[$name];
+            $this->services[$name] = $service($this);
         }
         return $this->services[$name];
     }
@@ -66,12 +67,12 @@ class ServiceLocator implements \ArrayAccess
             
             // view service
             'viewrenderer' => function ($services) {
-                return new View\View(APP_ROOT . '/resource/view');
+                return new View\ViewRenderer(APP_ROOT . '/resource/view');
             },
             
             'playlistrepository' => function ($services) {
                 return new Model\PlaylistRepository(
-                    new Model\PlaylistDataMapper($services['db'])
+                    new Model\DataMapper($services['db'])
                 );
             },
         );

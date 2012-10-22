@@ -4,8 +4,19 @@ namespace MyMusic\Model;
 
 class Artist
 {
+    protected $id;
     protected $name;
     protected $history;
+
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    public function getId()
+    {
+        return $this->id;
+    }
 
     public function setName($name)
     {
@@ -26,6 +37,5 @@ class Artist
     {
         return $this->history;
     }
-
 
 }

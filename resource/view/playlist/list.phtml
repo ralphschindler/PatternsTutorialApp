@@ -1,0 +1,18 @@
+<?php
+/** @var $playlist MyMusic\Model\Playlist */
+$playlist = $this->playlist;
+?>
+
+
+
+Playlist Name: <?= $playlist->getName() ?>
+Tracks:
+
+<br /><br />
+
+<?php foreach ($playlist->getTracks() as $i => $track): ?>
+    <?= $i+1 ?>: <u><?= $track->getTitle() ?></u>
+    by <b><?= $track->getArtist()->getName() ?></b>
+    on <i><?= $track->getAlbum()->getTitle() ?>
+    (<?= $track->getAlbum()->getReleaseDate() ?>)</i> <br />
+<?php endforeach; ?>

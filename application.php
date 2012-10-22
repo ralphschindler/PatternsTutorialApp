@@ -14,3 +14,4 @@ include APP_ROOT . '/vendor/SpotifyAPI/autoload.php';
 // services
 $services = new MyMusic\ServiceLocator;
 $services['config'] = parse_ini_file(APP_ROOT . '/data/config.ini');
+return $services;
