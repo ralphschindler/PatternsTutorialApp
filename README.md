@@ -29,7 +29,8 @@ abstraction is needed.
   line or as a web service API at some point in the future, so plan
   abstraction accordingly.
 * The "Aggregate Root" is the Playlist and is demonstrated via this
-  UML of the Aggregate of objects. [Domain Model](./dev/DomainModelPlaylist.png)
+  UML of the Aggregate of objects. See the file DomainModelPlaylist.png
+  in the ./dev/ directory.
 
 Things to Know Before You Start
 -------------------------------
