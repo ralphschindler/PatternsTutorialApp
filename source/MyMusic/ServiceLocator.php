@@ -2,8 +2,19 @@
 
 namespace MyMusic;
 
-use \Zend\Db\Adapter\Adapter as DbAdapter;
+use Zend\Db\Adapter\Adapter as DbAdapter;
 
+/**
+ * @pattern-notes
+ *
+ * - This object is a service container.
+ *
+ * - It is passed to controllers, thus completing the service locator
+ * pattern
+ *
+ * - This particular implementation uses PHP's closures as factories
+ * for the actual services, thus making them Lazy Loading services.
+ */
 class ServiceLocator implements \ArrayAccess
 {
     
@@ -47,7 +58,14 @@ class ServiceLocator implements \ArrayAccess
         $name = str_replace(array('-', '_', ' '), '', strtolower($name));
         unset($this->services[$name]);
     }
-    
+
+    /**
+     * @pattern-notes
+     *
+     * - This is where PHP ends up when its lazy loading default services
+     *
+     * @return array
+     */
     protected function initialize()
     {
         return array(
