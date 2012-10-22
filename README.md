@@ -41,6 +41,13 @@ Things to Know Before You Start
 * It uses Service Location to get application services into controllers,
   there are notes on this in the actual code.
 * It has a pre-made sqlite database to use in /data/application.sqlite
+* Patterns To Potentially use and identify:
+  - Repository pattern
+  - Entity, Value Objects
+  - Mapper / Data Mapper
+  - Lazy loading
+  - Dependency Injection
+  - etc.
 
 Your Tasks
 ----------
