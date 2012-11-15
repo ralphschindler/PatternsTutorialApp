@@ -2,6 +2,8 @@
 
 namespace MyMusic\Controller;
 
+use MyMusic\Model\Playlist;
+
 /**
  * @pattern-notes
  *
@@ -24,9 +26,9 @@ class PlaylistController
         /** @var $view \MyMusic\View\ViewRenderer */
         $view = $services['viewrenderer'];
 
-        /** @var $playlistRepo \MyMusic\Service\PlaylistService */
-        $playlistRepo = $services['PlaylistService'];
-        $view->playlist = $playlistRepo->findOneById($_GET['playlist']);
+        Playlist::registerDbAdapter($services['db']);
+        $view->playlists = Playlist::findAll();
+        $view->playlist = Playlist::findByIdWithRelationships($_GET['playlist']);
 
         $view->includeScript('playlist/list.phtml');
     }

@@ -3,7 +3,7 @@
 /** @var $playlist MyMusic\Model\Playlist */
 foreach ($this->playlists as $playlist):
 ?>
-    <a href="?controller=playlist&action=list&playlist=<?= $playlist->getId() ?>"><?= $playlist->getName(); ?></a>
+    <a href="?controller=playlist&action=list&playlist=<?= $playlist->id ?>"><?= $playlist->name; ?></a>
     <br />
 
 <?php endforeach; ?>

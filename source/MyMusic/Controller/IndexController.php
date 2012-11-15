@@ -2,6 +2,8 @@
 
 namespace MyMusic\Controller;
 
+use MyMusic\Model\Playlist;
+
 /**
  * @patter-notes
  *
@@ -20,16 +22,8 @@ class IndexController
         /** @var $view \MyMusic\View\ViewRenderer */
         $view = $services['viewrenderer'];
 
-        /** @var $playlistRepo \MyMusic\Service\PlaylistService */
-        $playlistRepo = $services['PlaylistService'];
-
-        /**
-         * @pattern-notes
-         *
-         * We know that findAll() returns an object that is an "Iterator",
-         * or is iterable, our view will iterate it
-         */
-        $view->playlists = $playlistRepo->findAll();
+        Playlist::registerDbAdapter($services['db']);
+        $view->playlists = Playlist::findAll();
 
         $view->includeScript('index/index.phtml');
     }

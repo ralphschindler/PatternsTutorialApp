@@ -5,14 +5,13 @@ $playlist = $this->playlist;
 
 
 
-Playlist Name: <?= $playlist->getName() ?>
+Playlist Name: <?= $playlist->name ?><br />
 Tracks:
 
 <br /><br />
 
-<?php foreach ($playlist->getTracks() as $i => $track): ?>
-    <?= $i+1 ?>: <u><?= $track->getTitle() ?></u>
-    by <b><?= $track->getArtist()->getName() ?></b>
-    on <i><?= $track->getAlbum()->getTitle() ?>
-    (<?= $track->getAlbum()->getReleaseDate() ?>)</i> <br />
+<?php foreach ($playlist->tracks as $i => $track): ?>
+    <?= $i+1 ?>: <u><?= $track->track_title ?></u>
+    by <b><?= $track->artist_name ?></b>
+    on <i><?= $track->album_title ?><br />
 <?php endforeach; ?>

@@ -87,12 +87,6 @@ class ServiceLocator implements \ArrayAccess
             'viewrenderer' => function ($services) {
                 return new View\ViewRenderer(APP_ROOT . '/resource/view');
             },
-            
-            'playlistrepository' => function ($services) {
-                return new Model\PlaylistRepository(
-                    new Model\DataMapper($services['db'])
-                );
-            },
 
             'playlistservice' => function ($services) {
                 return new Service\PlaylistService(
